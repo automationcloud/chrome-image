@@ -4,8 +4,8 @@
   "private": true,
   "description": "Node.js + Chrome Base Image",
   "scripts": {
-    "build": "docker build -t universalbasket/node-chrome:c76 .",
-    "push": "docker push universalbasket/node-chrome:c76"
+    "build": "docker build -t universalbasket/chrome:c76 .",
+    "push": "docker push universalbasket/chrome:c76"
   },
   "author": "ubio",
   "license": "ISC"

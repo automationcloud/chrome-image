@@ -1,17 +1,16 @@
 FROM node:10.16.0-slim
+# FROM ubuntu:18.04
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Install OS deps
-
 RUN apt-get update && \
     apt-get install -y \
-        vim \
         curl \
         netcat \
+        vim \
         zip \
-        lxde-core \
-        lxterminal \
+        libxss1 \
         tightvncserver \
-        libxss1 && \
         && \
     apt-get autoremove -y && \
     apt-get remove -y xscreensaver && \
@@ -20,7 +19,6 @@ RUN apt-get update && \
 # Install Chrome
 
 COPY ./install-chrome.sh /opt/install-chrome.sh
-RUN /opt/install-chrome.sh
+RUN /opt/install-chrome.sh && chown -R node:node /opt
 ENV CHROME_PATH /opt/latest/chrome
-RUN chown -R node:node /opt
 
