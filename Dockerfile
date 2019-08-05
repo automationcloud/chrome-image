@@ -9,7 +9,8 @@ RUN apt-get update && \
         netcat \
         vim \
         zip \
-        libxss1 \
+        lxde-core \
+        lxterminal \
         tightvncserver \
         && \
     apt-get autoremove -y && \
