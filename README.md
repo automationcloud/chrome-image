@@ -11,15 +11,21 @@ Please find below the resources which can be useful in figuring which revision n
 - Version Numbers: https://www.chromium.org/developers/version-numbers
 - Chromium Releases: https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html
 - Current Chromium release:
+    - 686378
+    - 78.0.3882.0
+    - https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Mac/686378/
+    - https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/686378/
+    - https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_x64/686378/
+
+## Histories of recently used Chromium releases
+
+- Before Oct 2019:
     - 07/30/19
     - 665002
     - 76.0.3809.87
     - https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Mac/665002/
     - https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/665022/
     - https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_x64/665006/
-
-## Histories of recently used Chromium releases
-
 - Before Aug 2019:
     - 05/21/19
     - 638880
