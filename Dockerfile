@@ -1,5 +1,4 @@
-FROM node:10.16.0-slim
-# FROM ubuntu:18.04
+FROM node:12.13.0-slim
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install OS deps
@@ -22,4 +21,3 @@ RUN apt-get update && \
 COPY ./install-chrome.sh /opt/install-chrome.sh
 RUN /opt/install-chrome.sh && chown -R node:node /opt
 ENV CHROME_PATH /opt/latest/chrome
-
