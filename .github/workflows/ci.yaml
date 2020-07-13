@@ -1,0 +1,51 @@
+name: CI
+env:
+  NAME: Chrome Image
+  REGISTRY: registry.hub.docker.com
+  IMAGE_NAME: chrome
+  NAMESPACE: automationcloud
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Extract tag as env var
+        run: |
+          ref="${{ github.ref }}"
+          echo "::set-env name=TAG::${ref/refs\/tags\//}"
+
+      - name: Build and push image
+        uses: docker/build-push-action@v1
+        with:
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ env.NAMESPACE }}/${{ env.IMAGE_NAME }}
+          tag_with_ref: true
+
+      - name: Notify Slack
+        if: ${{ success() }}
+        uses: docker://automationcloud/slack-docker-build-success:latest
+        with:
+          channel: ${{ secrets.SLACK_CHANNEL }}
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          name: ${{ env.NAME }}
+          registry: ${{ env.REGISTRY }}
+          namespace: ${{ env.NAMESPACE }}
+          image: ${{ env.IMAGE_NAME }}
+          tag: ${{ env.TAG }}
+
+      - name: Notify Slack on Failure
+        if: ${{ failure() }}
+        uses: docker://automationcloud/rsslack:latest
+        with:
+          channel: ${{ secrets.SLACK_CHANNEL }}
+          message: ":suspicious: *${{ env.NAME }}* workflow failed\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Run ${{ github.run_id }}>"
+          slack_token: ${{ secrets.SLACK_TOKEN }}
