@@ -2,7 +2,7 @@ name: CI
 env:
   NAME: Chrome Image
   REGISTRY: registry.hub.docker.com
-  IMAGE_NAME: chrome-image
+  IMAGE_NAME: chrome
   NAMESPACE: automationcloud
 
 on:
