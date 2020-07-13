@@ -16,13 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Start Notification
-        uses: docker://automationcloud/rsslack:latest
-        with:
-          channel: ${{ secrets.SLACK_CHANNEL }}
-          message: ":point_right: *${{ env.NAME }}* <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|workflow run> has started"
-          slack_token: ${{ secrets.SLACK_TOKEN }}
-
       - name: Extract tag as env var
         run: |
           ref="${{ github.ref }}"
@@ -55,12 +48,4 @@ jobs:
         with:
           channel: ${{ secrets.SLACK_CHANNEL }}
           message: ":suspicious: *${{ env.NAME }}* workflow failed\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Run ${{ github.run_id }}>"
-          slack_token: ${{ secrets.SLACK_TOKEN }}
-
-      - name: Notify Slack on Success
-        if: ${{ success() }}
-        uses: docker://automationcloud/rsslack:latest
-        with:
-          channel: ${{ secrets.SLACK_CHANNEL }}
-          message: ":success: *${{ env.NAME }}* <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|workflow run> has completed"
           slack_token: ${{ secrets.SLACK_TOKEN }}
