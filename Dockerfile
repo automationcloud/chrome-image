@@ -1,4 +1,4 @@
-FROM node:12.13.0-slim
+FROM node:12.18.2-slim
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install OS deps
