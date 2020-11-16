@@ -21,7 +21,8 @@ cd $(dirname $0)
 # REVISION=665006
 # REVISION=686378
 # REVISION=756066
-REVISION=768968
+# REVISION=768968
+REVISION=800220
 
 ZIP_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F$REVISION%2Fchrome-linux.zip?alt=media"
 
