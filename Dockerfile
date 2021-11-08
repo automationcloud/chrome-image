@@ -29,3 +29,4 @@ RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd6
     dpkg -i google-chrome-stable_current_amd64.deb
 
 ENV CHROME_PATH /usr/bin/google-chrome
+ENV VNC_PATH /usr/bin/vncserver
