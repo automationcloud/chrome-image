@@ -20,4 +20,6 @@ RUN apt-get update && \
 
 COPY ./install-chrome.sh /opt/install-chrome.sh
 RUN /opt/install-chrome.sh && chown -R node:node /opt
+
 ENV CHROME_PATH /opt/latest/chrome
+ENV VNC_PATH /usr/bin/vncserver
