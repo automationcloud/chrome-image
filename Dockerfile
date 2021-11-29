@@ -21,5 +21,6 @@ RUN apt-get update && \
 COPY ./install-chrome.sh /opt/install-chrome.sh
 RUN /opt/install-chrome.sh && chown -R node:node /opt
 
-ENV CHROME_PATH /opt/latest/chrome
 ENV VNC_PATH /usr/bin/vncserver
+ENV CHROME_PATH /opt/latest/chrome
+ENV USER_AGENT Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.0 Safari/537.36
